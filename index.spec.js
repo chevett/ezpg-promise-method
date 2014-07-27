@@ -1,7 +1,6 @@
 var ezpg = require('ezpg'),
 	method = require('./index.js'),
-	expect = require('chai').expect,
-	testOrders = require('./orders.json');
+	expect = require('chai').expect;
 
 describe('ezpg-promise-method', function(){
 	it('should provide a client argument if the method is called with no args', function(done){
@@ -51,6 +50,41 @@ describe('ezpg-promise-method', function(){
 		ezpg.connection(function(err, client, closeConnection){
 			instance.mmm(client, 1, 2, 'a')
 				.finally(function(){
+					closeConnection();
+					done();
+				})
+				.done();
+		});
+	});
+
+	it('should resolve the right value without a client', function(done){
+		var instance = {},
+		addMethod = method(instance);
+
+		addMethod('mmm', function(client, a, b){
+			return a + b;
+		});
+
+		instance.mmm(1, 2)
+			.then(function(three){
+				expect(three).to.be.equal(3);
+				done();
+			})
+			.done();
+	});
+
+	it('should resolve the right value with a client', function(done){
+		var instance = {},
+		addMethod = method(instance);
+
+		addMethod('mmm', function(client, a, b){
+			return a + b;
+		});
+
+		ezpg.connection(function(err, client, closeConnection){
+			instance.mmm(client, 1, 2)
+				.then(function(three){
+					expect(three).to.be.equal(3);
 					closeConnection();
 					done();
 				})

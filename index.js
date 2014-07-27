@@ -8,7 +8,7 @@ function containZalgo(fn){
 	var d = q.defer();
 
 	process.nextTick(function(){
-		d.resolve(fn);
+		d.resolve(fn());
 	});
 
 	return d.promise;
@@ -51,7 +51,7 @@ function runWithClient(func){
 				.finally(done.bind(null, undefined))
 				.done();
 		} else {
-			d.resolve();
+			d.resolve(result);
 			setImmediate(done.bind(null, undefined));
 		}
 	});
