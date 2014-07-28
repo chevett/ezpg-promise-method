@@ -1,4 +1,4 @@
-ezpg-promise-method [![Build Status](https://build.deliveryrelay.com/chevett/ezpg-promise-method/badge)](htts://build.deliveryrelay.com/chevett/ezpg-promise-method)
+ezpg-promise-method [![Build Status](https://build.deliveryrelay.com/chevett/ezpg-promise-method/badge)](https://build.deliveryrelay.com/chevett/ezpg-promise-method)
 ====================
 
 Ensure that the first parameter is always the pgClient.
