@@ -91,4 +91,42 @@ describe('ezpg-promise-method', function(){
 				.done();
 		});
 	});
+
+	it('should work with an array parameter', function(done){
+		var instance = {},
+		addMethod = method(instance);
+
+		addMethod(['mmm', 'meth2'], function(client, arr){
+			expect(client).to.be.ok;
+			console.dir(arr);
+			expect(arr).to.be.eql([1,2,'a']);
+		});
+
+		instance.meth2([1, 2, 'a'])
+			.finally(function(){
+				done();
+			})
+			.done();
+	});
+
+	it('should work with an array parameter and a client', function(done){
+		var instance = {},
+		addMethod = method(instance);
+
+		addMethod(['mmm', 'meth2'], function(client, arr){
+			expect(client).to.be.ok;
+			console.dir(arr);
+			expect(arr).to.be.eql([1,2,'a']);
+		});
+
+		ezpg.connection(function(err, client, closeConnection){
+
+			instance.meth2([1, 2, 'a'])
+				.finally(function(){
+					closeConnection();
+					done();
+				})
+				.done();
+		});
+	});
 });
