@@ -10,12 +10,12 @@
   "author": "mike chevett",
   "license": "mit",
   "dependencies": {
-    "ezpg": "^0.1.8",
-    "lodash": "^2.4.1",
-    "q": "^1.0.1"
+    "ezpg": "^0.1.12",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "mocha": "^1.21.1"
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2"
   }
 }
