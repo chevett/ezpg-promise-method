@@ -1,6 +1,6 @@
 {
   "name": "ezpg-promise-method",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "helper for creating functions that always need a PG client, but don't need to be directly passed a PG client",
   "main": "index.js",
   "scripts": {
