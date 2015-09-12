@@ -1,6 +1,6 @@
 {
   "name": "ezpg-promise-method",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "helper for creating functions that always need a PG client, but don't need to be directly passed a PG client",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "mike chevett",
   "license": "mit",
   "dependencies": {
-    "ezpg": "^0.1.12",
+    "ezpg": "^0.2.0",
     "lodash": "^3.10.1",
     "q": "^1.4.1"
   },
